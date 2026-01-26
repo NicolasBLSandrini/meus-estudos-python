@@ -1,0 +1,13 @@
+palavra=str(input('Digite qualquer coisa: '))
+print('Apenas letras do alfabeto ?', (palavra.isalpha()))
+print('Tem apenas espaços ?', (palavra.isspace()))
+print('Apenas números ?', (palavra.isnumeric()))
+print('Apenas números do 0 ao 9? ', (palavra.isdigit()))
+print('Numeros e letras ?', (palavra.isalnum()))
+print('Apenas letras minúsculas ?', (palavra.islower()))
+print('Apenas letras maiusculas ?', (palavra.isupper()))
+print('Está capitalizada ? ', (palavra.istitle()))
+print('Pode ser uma variavel ?', (palavra.isidentifier()))
+print('Fazem parte do ASCII ?', palavra.isascii())
+print('Pode ser impressa ?', (palavra.isprintable()))
+
