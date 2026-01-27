@@ -14,30 +14,38 @@
 from random import randint
 from time import sleep
 
-print('\033[33m--__--__--'*20)
-print('\033[36mVamos jogar um jogo, tente acertar o número certo.')
-pronto=str(input('\033[31mVocê está pronto? ')).strip().lower()
+amarelo='\033[33m'
+vermelho='\033[31m'
+verde='\033[32m'
+azul='\033[36m'
+cinza='\033[37m'
+reset='\033[m'
+
+
+print(vermelho+'--__--__--'*20+reset)
+print(azul+'Vamos jogar um jogo, tente acertar o número certo.'+reset)
+pronto=str(input(vermelho+'Você está pronto? '+reset)).strip().lower()
 if pronto=='sim':
     tentativamax=0
-    print('\033[m___'*20)
+    print('___'*20)
     print('Muito bem então, \033[31mescolha uma dificuldade')
     sleep(1)
-    print('\033[37mFácil: seu jogo será mais fácil de acertar... É tão sem graça.. Você vai ter 3 chances de acertar\n\033[33mMédia: Seu jogo será razoavelmente divertido.. Você vai ter 5 tentativas de acerto\n\033[31mDifícil: Seu jogo sera maravilhosamente divertido, você vai ter 7 chances de acertar')
-    dificult=(input('\033[mE então ? Qual vai ser? ')).strip().lower()
-    print('\033[m___'*20)
+    print(cinza+'Fácil: seu jogo será mais fácil de acertar... É tão sem graça.. Você vai ter 3 chances de acertar\n', amarelo+'Média: Seu jogo será razoavelmente divertido.. Você vai ter 5 tentativas de acerto\n', vermelho+'Difícil: Seu jogo sera maravilhosamente divertido, você vai ter 7 chances de acertar'+reset)
+    dificult=(input('E então ? Qual vai ser? ')).strip().lower()
+    print('___'*20)
     if dificult in('facil', 'fácil'):
         acertou=False
         tentativa=0
         tentativamax=3
         compu1 = randint(0, 3)
-        print('Tãooooo sem graça... mas vamos la')
-        print('O jogo é o seguinte, eu vou pensar em um número, e você vai ter que acertar')
+        print(azul+'Tãooooo sem graça... mas vamos la')
+        print('O jogo é o seguinte, eu vou pensar em um número, e você vai ter que acertar'+reset)
         while not acertou and tentativa<tentativamax:
-            nund1=int(input('Tente adivinhar um número de \033[33m0 a 3\033[m: '))
+            nund1=int(input('Tente adivinhar um número de ' + vermelho + '0 a 3: ' + reset))
 
             sleep(1.5)
             if nund1==compu1:
-                print('Você acertou, seu bobão sem graça')
+                print(verde+'Você acertou, seu bobão sem graça')
                 acertou=True
 
             elif nund1>3 or nund1<0:
@@ -45,10 +53,10 @@ if pronto=='sim':
 
             else:
                 tentativa=tentativa+1
-                print('Não acredito que você foi capaz de errar nessa dificuldade, vamos, tente de novo\nChances restantes: {}'. format(tentativamax-tentativa))
+                print(amarelo+'Não acredito que você foi capaz de errar nessa dificuldade, vamos, tente de novo\nChances restantes:', vermelho+ ' {}'. format(tentativamax-tentativa)+reset)
 
         if not acertou:
-            print('Suas chences acabaram, eu pensei no número {}'.format(compu1))
+            print(azul+'Suas chences acabaram, eu pensei no número', vermelho+' {}'.format(compu1))
 
 
     elif dificult in('media', 'média', 'medio', 'médio'):
@@ -56,14 +64,14 @@ if pronto=='sim':
         tentativa=0
         tentativamax=5
         compu2 = randint(0, 6)
-        print('Vamos la, pelo menos vai ser mais divertido do que se fosse no fácil..')
+        print(azul+'Vamos la, pelo menos vai ser mais divertido do que se fosse no fácil..')
         print('O jogo é o seguinte, eu vou pensar em um número, e você vai ter que acertar')
         while not acertou and tentativa<tentativamax:
-            nund2=int(input('\033[36Tente adivinhar em um número de \033[33m0 a 6\033[m: '))
+            nund2=int(input('Tente adivinhar em um número de ' + vermelho + '0 a 6: ' + reset))
 
             sleep(1.5)
             if nund2==compu2:
-                print('Parábens, você acertou, mas téria sido mais divertido no difícil..')
+                print(verde+'Parábens, você acertou, mas téria sido mais divertido no difícil..'+reset)
                 acertou=True
 
             elif nund2>6 or nund2<0:
@@ -71,9 +79,9 @@ if pronto=='sim':
 
             else:
                 tentativa=tentativa+1
-                print('Você errou, mas tudo bem.. Teria sido pior se fosse no fácil, tente de novo\nTentativas restantes: {}'.format(tentativamax-tentativa))
+                print(amarelo+'Você errou, mas tudo bem.. Teria sido pior se fosse no fácil, tente de novo\nTentativas restantes: ', vermelho+'{}'.format(tentativamax-tentativa)+reset)
         if not acertou:
-            print('Suas chances acabaram... Eu pensei no número {}'.format(compu2))
+            print(azul+'Suas chances acabaram... Eu pensei no número ', vermelho+'{}'.format(compu2)+reset)
 
 
     elif dificult in ('dificil', 'difícil'):
@@ -81,14 +89,14 @@ if pronto=='sim':
         tentativa=0
         tentativamax=7
         compu3 = randint(0, 10)
-        print('Nossa, então você tem coragem... vou caprichar nessa')
+        print(azul+'Nossa, então você tem coragem... vou caprichar nessa')
         print('O jogo é o seguinte, eu vou pensar em um número, e você vai ter que acertar')
         while not acertou and tentativa<tentativamax:
-            nund3=int(input('escolha um número de \033[33m0 a 10\033[m: '))
+            nund3=int(input('escolha um número de ' + vermelho+'0 a 10: '+reset))
 
             sleep(1.5)
             if nund3==compu3:
-                print('Não acredito que você acertou... Olha, eu tiro o chapeu pra você..')
+                print(verde+'Não acredito que você acertou... Olha, eu tiro o chapeu pra você..'+reset)
                 acertou=True
 
             elif nund3>10 or nund3<0:
@@ -96,10 +104,10 @@ if pronto=='sim':
 
             else:
                 tentativa=tentativa+1
-                print('Você errou.. Mas tudo bem, essa dificuldade é realmente difícil, tente de novo\nTentativas restantes: {}'.format(tentativamax-tentativa))
+                print(amarelo+'Você errou.. Mas tudo bem, essa dificuldade é realmente difícil, tente de novo\nTentativas restantes:', vermelho+' {}'.format(tentativamax-tentativa)+reset)
 
         if not acertou:
-            print('Suas chances acabaram, eu pensei no número {}'.format(compu3))
+            print(azul+'Suas chances acabaram, eu pensei no número ', vermelho+'{}'.format(compu3)+reset)
     else:
         print('Vamos, escolha logo uma das opções, você não queria jogar meu jogo?')
 
@@ -107,6 +115,6 @@ elif pronto in ('nao', 'não'):
     print('Nossa.. Não sábia que meu jogo te assustava tanto assim, que sem graça')
 else:
     print('Resposta invalida, você ta tentando me enganar ?')
-print('--__--__--'*20)
+print(vermelho+'--__--__--'*20)
 
 
