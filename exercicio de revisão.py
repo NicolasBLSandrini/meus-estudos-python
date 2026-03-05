@@ -124,10 +124,15 @@ if simounao=='sim':
 
             else:
                 tentativa=tentativa+1
-                print('Você errou, mas ainda tem {} tentativas'.format(chance-tentativa))
+                if chance==tentativa and acertou==False:
+                    print('Você errou.. E suas chances acabaram..')
+                else:
+                    print('Você errou, mas ainda tem {} tentativas'.format(chance-tentativa))
 
-        if not acertou==False:
-            print('Poxa.. Parece que não foi dessa vez, {}.. Até a proxíma!'.format(nome))
+
+
+        if acertou==False:
+            print('Poxa.. Parece que não foi dessa vez, {}.. O número sorteado foi {}.. Até a proxíma!'.format(nome, numale))
 
     else:
         print('Poxa.. Parece que a dificuldade ta invalida, não vai dar para continuarmos..')
